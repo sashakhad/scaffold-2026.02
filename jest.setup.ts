@@ -1,68 +1,66 @@
 import '@testing-library/jest-dom'
 
-// Mock Next.js router
-const mockRouter = {
-  push: () => {},
-  replace: () => {},
-  prefetch: () => {},
-  back: () => {},
-  forward: () => {},
-  refresh: () => {},
-}
-
 // Mock Next.js navigation
-const mockNavigation = {
-  useRouter: () => mockRouter,
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    replace: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+    forward: jest.fn(),
+    refresh: jest.fn(),
+  }),
   useSearchParams: () => new URLSearchParams(),
   usePathname: () => '/',
-}
+}))
 
 // Mock Next.js image
-const mockImage = {
+jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: any) => {
     // eslint-disable-next-line @next/next/no-img-element
     return require('react').createElement('img', props)
   },
-}
+}))
 
 // Mock Prisma
-const mockPrisma = {
+jest.mock('@/lib/prisma', () => ({
   prisma: {
     user: {
-      findMany: () => {},
-      findUnique: () => {},
-      create: () => {},
-      update: () => {},
-      delete: () => {},
+      findMany: jest.fn(),
+      findUnique: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      delete: jest.fn(),
     },
     post: {
-      findMany: () => {},
-      findUnique: () => {},
-      create: () => {},
-      update: () => {},
-      delete: () => {},
+      findMany: jest.fn(),
+      findUnique: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      delete: jest.fn(),
     },
   },
-}
+}))
 
 // Global test utilities
+// Polyfill ResizeObserver
+// @ts-ignore
 global.ResizeObserver = class ResizeObserver {
   observe() {}
   unobserve() {}
   disconnect() {}
-} as any
+}
 
-global.matchMedia = (query: string) => ({
+// Polyfill matchMedia
+// @ts-ignore
+global.matchMedia = (query) => ({
   matches: false,
   media: query,
   onchange: null,
-  addListener: () => {},
-  removeListener: () => {},
-  addEventListener: () => {},
-  removeEventListener: () => {},
-  dispatchEvent: () => {},
-}) as any
-
-// Export mocks for use in tests
-export { mockRouter, mockNavigation, mockImage, mockPrisma } 
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  dispatchEvent: jest.fn(),
+}) 
