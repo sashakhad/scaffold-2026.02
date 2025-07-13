@@ -1,8 +1,5 @@
 ---
-description: Git commit rules for a project.
-globs:
-  - '**/*'
-alwaysApply: true
+title: Git Commit Rules
 ---
 
 # Git Commit Rules
@@ -137,6 +134,12 @@ Before committing, ask yourself:
 - [ ] Are all tests passing?
 - [ ] Is the code properly formatted?
 - [ ] Are there any unintended changes included?
+- [ ] Does this commit make sense on its own?
+- [ ] Would this commit be easy to revert if needed?
+
+- [ ] Does this commit make sense on its own?
+- [ ] Would this commit be easy to revert if needed?
+
 - [ ] Does this commit make sense on its own?
 - [ ] Would this commit be easy to revert if needed?
 
