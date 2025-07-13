@@ -17,18 +17,20 @@ A clean, modern scaffold for full-stack web applications built with Next.js 15, 
 ## Getting Started
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Set up your database:**
+
    ```bash
    # Add your DATABASE_URL to .env
    echo "DATABASE_URL=\"postgresql://user:password@localhost:5432/dbname\"" > .env
-   
+
    # Generate Prisma client
    npm run db:generate
-   
+
    # Push schema to database
    npm run db:push
    ```
@@ -83,6 +85,7 @@ The scaffold includes a basic User model in Prisma. You can extend it by:
 ## Styling & UI
 
 Uses Tailwind CSS v4 with shadcn/ui components:
+
 - Geist fonts (sans and mono)
 - Dark mode support
 - Responsive design utilities

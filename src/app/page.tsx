@@ -8,7 +8,8 @@ export default function Home() {
         <header className="text-center space-y-4">
           <h1 className="text-4xl font-bold">Modern Full-Stack Scaffold</h1>
           <p className="text-xl text-muted-foreground">
-            Next.js 15 + React 19 + TypeScript + Prisma + Tailwind CSS + shadcn/ui
+            Next.js 15 + React 19 + TypeScript + Prisma + Tailwind CSS +
+            shadcn/ui
           </p>
         </header>
 

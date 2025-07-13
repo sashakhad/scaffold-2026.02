@@ -14,7 +14,10 @@ const eslintConfig = [
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     rules: {
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_" },
+      ],
       "@typescript-eslint/no-explicit-any": "error",
       "prefer-const": "error",
       "no-var": "error",
@@ -23,14 +26,14 @@ const eslintConfig = [
       "prefer-arrow-callback": "error",
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "error",
-      "eqeqeq": ["error", "always"],
-      "curly": ["error", "all"],
+      eqeqeq: ["error", "always"],
+      curly: ["error", "all"],
       "no-eval": "error",
       "no-implied-eval": "error",
       "no-new-func": "error",
-      "no-script-url": "error"
-    }
-  }
+      "no-script-url": "error",
+    },
+  },
 ];
 
 export default eslintConfig;

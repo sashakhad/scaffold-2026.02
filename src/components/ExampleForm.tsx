@@ -14,14 +14,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const formSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"],
-});
+const formSchema = z
+  .object({
+    email: z.string().email("Please enter a valid email address"),
+    password: z.string().min(8, "Password must be at least 8 characters"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
 type FormData = z.infer<typeof formSchema>;
 
@@ -71,10 +73,10 @@ export function ExampleForm() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input 
-                    type="password" 
-                    placeholder="Enter your password" 
-                    {...field} 
+                  <Input
+                    type="password"
+                    placeholder="Enter your password"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
@@ -89,10 +91,10 @@ export function ExampleForm() {
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
                 <FormControl>
-                  <Input 
-                    type="password" 
-                    placeholder="Confirm your password" 
-                    {...field} 
+                  <Input
+                    type="password"
+                    placeholder="Confirm your password"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
@@ -107,4 +109,4 @@ export function ExampleForm() {
       </Form>
     </div>
   );
-} 
+}
