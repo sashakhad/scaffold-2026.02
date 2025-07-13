@@ -1,3 +1,10 @@
+---
+description: Git commit rules for a project.
+globs:
+  - '**/*'
+alwaysApply: true
+---
+
 # Git Commit Rules
 
 ## Commit Message Format
@@ -5,12 +12,14 @@
 Use conventional commit format:
 
 ```bash
-<type>[optional scope]: <description>
+<type>(optional scope): <description>
 
 [optional body]
 
 [optional footer(s)]
 ```
+
+- **Scope**: For extra clarity, especially in larger projects, add a scope in parentheses after the type to indicate the area, file, or feature affected. This is optional but recommended for clarity.
 
 ## Commit Types
 
@@ -27,14 +36,17 @@ Use conventional commit format:
 
 ```bash
 # ✅ Good examples
-feat: add user authentication system
-fix: resolve Cypress test port mismatch
-docs: update README with setup instructions
+feat(auth): add user authentication system
+fix(form): resolve Cypress test port mismatch
+docs(readme): update README with setup instructions
 style: format code with prettier
-refactor: extract form validation logic
-perf: optimize database queries
-test: add unit tests for UserCard component
-chore: update dependencies
+refactor(validation): extract form validation logic
+perf(db): optimize database queries
+test(user-card): add unit tests for UserCard component
+chore(deps): update dependencies
+
+# ✅ Also valid (no scope, for general changes)
+feat: add user authentication system
 
 # ❌ Bad examples
 feat: add stuff
@@ -125,9 +137,6 @@ Before committing, ask yourself:
 - [ ] Are all tests passing?
 - [ ] Is the code properly formatted?
 - [ ] Are there any unintended changes included?
-- [ ] Does this commit make sense on its own?
-- [ ] Would this commit be easy to revert if needed?
-
 - [ ] Does this commit make sense on its own?
 - [ ] Would this commit be easy to revert if needed?
 
