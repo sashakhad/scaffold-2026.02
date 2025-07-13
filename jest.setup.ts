@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 
 // Mock Next.js navigation
 jest.mock('next/navigation', () => ({
@@ -12,16 +12,16 @@ jest.mock('next/navigation', () => ({
   }),
   useSearchParams: () => new URLSearchParams(),
   usePathname: () => '/',
-}))
+}));
 
 // Mock Next.js image
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: any) => {
     // eslint-disable-next-line @next/next/no-img-element
-    return require('react').createElement('img', props)
+    return require('react').createElement('img', props);
   },
-}))
+}));
 
 // Mock Prisma
 jest.mock('@/lib/prisma', () => ({
@@ -41,7 +41,7 @@ jest.mock('@/lib/prisma', () => ({
       delete: jest.fn(),
     },
   },
-}))
+}));
 
 // Global test utilities
 // Polyfill ResizeObserver
@@ -50,11 +50,11 @@ global.ResizeObserver = class ResizeObserver {
   observe() {}
   unobserve() {}
   disconnect() {}
-}
+};
 
 // Polyfill matchMedia
 // @ts-ignore
-global.matchMedia = (query) => ({
+global.matchMedia = query => ({
   matches: false,
   media: query,
   onchange: null,
@@ -63,4 +63,4 @@ global.matchMedia = (query) => ({
   addEventListener: jest.fn(),
   removeEventListener: jest.fn(),
   dispatchEvent: jest.fn(),
-}) 
+});

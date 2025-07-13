@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Form,
   FormControl,
@@ -12,16 +12,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form';
 
-const formSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"],
-});
+const formSchema = z
+  .object({
+    email: z.string().email('Please enter a valid email address'),
+    password: z.string().min(8, 'Password must be at least 8 characters'),
+    confirmPassword: z.string(),
+  })
+  .refine(data => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ['confirmPassword'],
+  });
 
 type FormData = z.infer<typeof formSchema>;
 
@@ -29,9 +31,9 @@ export function ExampleForm() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      password: "",
-      confirmPassword: "",
+      email: '',
+      password: '',
+      confirmPassword: '',
     },
   });
 
@@ -40,24 +42,24 @@ export function ExampleForm() {
   }
 
   return (
-    <div className="w-full max-w-md space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-bold">Example Form</h2>
-        <p className="text-muted-foreground">
+    <div className='w-full max-w-md space-y-6'>
+      <div className='space-y-2'>
+        <h2 className='text-2xl font-bold'>Example Form</h2>
+        <p className='text-muted-foreground'>
           Demonstrates React Hook Form + Zod + shadcn/ui integration
         </p>
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
           <FormField
             control={form.control}
-            name="email"
+            name='email'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your email" {...field} />
+                  <Input placeholder='Enter your email' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -66,16 +68,12 @@ export function ExampleForm() {
 
           <FormField
             control={form.control}
-            name="password"
+            name='password'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input 
-                    type="password" 
-                    placeholder="Enter your password" 
-                    {...field} 
-                  />
+                  <Input type='password' placeholder='Enter your password' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -84,27 +82,23 @@ export function ExampleForm() {
 
           <FormField
             control={form.control}
-            name="confirmPassword"
+            name='confirmPassword'
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
                 <FormControl>
-                  <Input 
-                    type="password" 
-                    placeholder="Confirm your password" 
-                    {...field} 
-                  />
+                  <Input type='password' placeholder='Confirm your password' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit" className="w-full">
+          <Button type='submit' className='w-full'>
             Submit
           </Button>
         </form>
       </Form>
     </div>
   );
-} 
+}
