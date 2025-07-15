@@ -3,20 +3,20 @@ import { ExampleForm } from '@/components/ExampleForm';
 export default function Home() {
   return (
     <div className='min-h-screen p-8 font-[family-name:var(--font-geist-sans)]'>
-      <div className='max-w-4xl mx-auto space-y-12'>
+      <div className='mx-auto max-w-4xl space-y-12'>
         {/* Header Section */}
-        <header className='text-center space-y-4'>
+        <header className='space-y-4 text-center'>
           <h1 className='text-4xl font-bold'>Modern Full-Stack Scaffold</h1>
-          <p className='text-xl text-muted-foreground'>
+          <p className='text-muted-foreground text-xl'>
             Next.js 15 + React 19 + TypeScript + Prisma + Tailwind CSS + shadcn/ui
           </p>
         </header>
 
         {/* Features Grid */}
-        <section className='grid md:grid-cols-2 gap-8'>
+        <section className='grid gap-8 md:grid-cols-2'>
           <div className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Built with Modern Tech</h2>
-            <ul className='space-y-2 text-muted-foreground'>
+            <ul className='text-muted-foreground space-y-2'>
               <li>• Next.js 15 with App Router and Turbopack</li>
               <li>• React 19 with latest features</li>
               <li>• TypeScript with strict configuration</li>
@@ -29,7 +29,7 @@ export default function Home() {
 
           <div className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Development Tools</h2>
-            <ul className='space-y-2 text-muted-foreground'>
+            <ul className='text-muted-foreground space-y-2'>
               <li>• ESLint with Next.js and TypeScript rules</li>
               <li>• Prettier for code formatting</li>
               <li>• Type-safe database access</li>
