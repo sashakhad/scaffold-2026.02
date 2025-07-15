@@ -19,7 +19,7 @@ A clean, modern scaffold for full-stack web applications built with Next.js 15, 
 1. **Install dependencies:**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Set up your database:**
@@ -29,30 +29,37 @@ A clean, modern scaffold for full-stack web applications built with Next.js 15, 
    echo "DATABASE_URL=\"postgresql://user:password@localhost:5432/dbname\"" > .env
 
    # Generate Prisma client
-   npm run db:generate
+   pnpm run db:generate
 
    # Push schema to database
-   npm run db:push
+   pnpm run db:push
    ```
 
 3. **Start development server:**
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 ## Available Scripts
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
-- `npm run format` - Format code with Prettier
-- `npm run type-check` - Run TypeScript type checking
-- `npm run db:generate` - Generate Prisma client
-- `npm run db:push` - Push schema changes to database
-- `npm run db:migrate` - Create and apply migrations
-- `npm run db:studio` - Open Prisma Studio
+- `pnpm run dev` - Start development server with Turbopack
+- `pnpm run build` - Build for production
+- `pnpm run start` - Start production server
+- `pnpm run lint` - Run ESLint
+- `pnpm run lint:fix` - Fix ESLint issues
+- `pnpm run format` - Format code with Prettier
+- `pnpm run type-check` - Run TypeScript type checking
+- `pnpm run db:generate` - Generate Prisma client
+- `pnpm run db:push` - Push schema changes to database
+- `pnpm run db:migrate` - Create and apply migrations
+- `pnpm run db:studio` - Open Prisma Studio
+- `pnpm run test` - Run unit tests with Jest
+- `pnpm run test:watch` - Run Jest in watch mode
+- `pnpm run test:coverage` - Run Jest with coverage
+- `pnpm run test:e2e` - Run Cypress E2E tests
+- `pnpm run test:e2e:open` - Open Cypress interactive runner
+- `pnpm run storybook` - Start Storybook for UI component development
+- `pnpm run build-storybook` - Build Storybook static site
 
 ## Project Structure
 
@@ -79,8 +86,8 @@ src/
 The scaffold includes a basic User model in Prisma. You can extend it by:
 
 1. Editing `prisma/schema.prisma`
-2. Running `npm run db:push` to apply changes
-3. Or `npm run db:migrate` for versioned migrations
+2. Running `pnpm run db:push` to apply changes
+3. Or `pnpm run db:migrate` for versioned migrations
 
 ## Styling & UI
 
@@ -115,6 +122,14 @@ Uses Tailwind CSS v4 with shadcn/ui components:
 4. Prisma provides type-safe database access
 5. Use shadcn/ui components for consistent UI
 6. React Hook Form + Zod for type-safe forms
+
+## Testing
+
+- **Jest** for unit tests (`pnpm run test`, `pnpm run test:watch`, `pnpm run test:coverage`)
+- **Cypress** for end-to-end (E2E) tests (`pnpm run test:e2e`, `pnpm run test:e2e:open`)
+- **React Testing Library** for component tests
+- Tests live alongside the code they test (e.g., `src/components/__tests__/`)
+- Use descriptive test names and utility functions for assertions
 
 ## Adding More Components
 
