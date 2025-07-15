@@ -4,7 +4,7 @@
 
 - Every rule file **must** start with a YAML frontmatter block containing:
   - `description`: A short summary of the rule's purpose.
-  - `globs`: File patterns (as a YAML object or list) indicating where the rule applies.
+  - `globs`: File patterns (as a YAML list or object) indicating where the rule applies.
   - `alwaysApply`: Whether the rule should always be considered (true/false).
 - The YAML frontmatter must be at the very top of the file, before any Markdown content.
 - The main content should use Markdown, with clear sections and examples as appropriate.
@@ -13,7 +13,7 @@
 
 ## Example Rule File
 
-```mdc
+```
 ---
 description: Example rule for demonstration.
 globs:
@@ -22,8 +22,6 @@ alwaysApply: false
 ---
 
 # Example Rule
-
-## What to do
 
 - Follow this pattern for all new rules.
 ```
