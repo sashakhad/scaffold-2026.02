@@ -1,14 +1,14 @@
 # Modern Full-Stack Scaffold
 
-A clean, modern scaffold for full-stack web applications built with Next.js 15, React 19, TypeScript, Prisma, Tailwind CSS, and shadcn/ui.
+A clean, modern scaffold for full-stack web applications built with Next.js 15.5.5, React 19.2.0, TypeScript 5.9.3, Prisma 6.17.1, Tailwind CSS 4.1.14, and shadcn/ui.
 
 ## Features
 
-- **Next.js 15** with App Router and Turbopack
-- **React 19** with latest features
-- **TypeScript** with strict configuration
-- **Prisma** with PostgreSQL for database management
-- **Tailwind CSS v4** for styling
+- **Next.js 15.5.5** with App Router and Turbopack
+- **React 19.2.0** with latest features
+- **TypeScript 5.9.3** with strict configuration
+- **Prisma 6.17.1** with PostgreSQL for database management
+- **Tailwind CSS 4.1.14** for styling
 - **shadcn/ui** with Radix UI components
 - **React Hook Form** with Zod validation
 - **ESLint** with Next.js and TypeScript rules
