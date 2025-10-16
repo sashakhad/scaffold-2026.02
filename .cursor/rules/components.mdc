@@ -1,9 +1,7 @@
 ---
-description: Component rules for React applications.
 globs: ["**/*.ts", "**/*.tsx"]
-alwaysApply: true
+alwaysApply: false
 ---
-
 - When creating a component, always check if there is an existing one before creating a new one.
 
 ### Function Declarations
