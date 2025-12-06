@@ -1,144 +1,119 @@
-# Modern Full-Stack Scaffold
+# Project Scaffold
 
-A clean, modern scaffold for full-stack web applications built with Next.js 15, React 19, TypeScript, Prisma, Tailwind CSS, and shadcn/ui.
+A ready-to-use template for building web applications. No coding experience required to get started!
 
-## Features
+---
 
-- **Next.js 15** with App Router and Turbopack
-- **React 19** with latest features
-- **TypeScript** with strict configuration
-- **Prisma** with PostgreSQL for database management
-- **Tailwind CSS v4** for styling
-- **shadcn/ui** with Radix UI components
-- **React Hook Form** with Zod validation
-- **ESLint** with Next.js and TypeScript rules
-- **Prettier** for code formatting
+## 🚀 Quick Start
 
-## Getting Started
+This project uses **Cursor commands** to make everything easy. Just type these commands in the Cursor chat:
 
-1. **Install dependencies:**
+| Command | What it does |
+|---------|--------------|
+| `/setup` | Installs everything your project needs |
+| `/start` | Launches your app so you can see it in the browser |
+| `/new-project` | Creates a fresh copy of this template for a new project |
 
-   ```bash
-   pnpm install
-   ```
+---
 
-2. **Set up your database:**
+## 📋 Getting Started
 
-   ```bash
-   # Add your DATABASE_URL to .env
-   echo "DATABASE_URL=\"postgresql://user:password@localhost:5432/dbname\"" > .env
+### First Time Setup
 
-   # Generate Prisma client
-   pnpm run db:generate
+1. Open this folder in Cursor
+2. Open the chat (click the chat icon or press `Cmd+L` / `Ctrl+L`)
+3. Type `/setup` and press Enter
+4. Wait for everything to install (takes 1-2 minutes)
+5. Type `/start` to launch your app
+6. Open http://localhost:3000 in your browser
 
-   # Push schema to database
-   pnpm run db:push
-   ```
+**That's it!** You should see your app running.
 
-3. **Start development server:**
-   ```bash
-   pnpm run dev
-   ```
+---
 
-## Available Scripts
+## 🆕 Starting a New Project
 
-- `pnpm run dev` - Start development server with Turbopack
-- `pnpm run build` - Build for production
-- `pnpm run start` - Start production server
-- `pnpm run lint` - Run ESLint
-- `pnpm run lint:fix` - Fix ESLint issues
-- `pnpm run format` - Format code with Prettier
-- `pnpm run type-check` - Run TypeScript type checking
-- `pnpm run db:generate` - Generate Prisma client
-- `pnpm run db:push` - Push schema changes to database
-- `pnpm run db:migrate` - Create and apply migrations
-- `pnpm run db:studio` - Open Prisma Studio
-- `pnpm run test` - Run unit tests with Jest
-- `pnpm run test:watch` - Run Jest in watch mode
-- `pnpm run test:coverage` - Run Jest with coverage
-- `pnpm run test:e2e` - Run Cypress E2E tests
-- `pnpm run test:e2e:open` - Open Cypress interactive runner
-- `pnpm run storybook` - Start Storybook for UI component development
-- `pnpm run build-storybook` - Build Storybook static site
+Want to create a new project using this template?
 
-## Project Structure
+1. Type `/new-project` in the chat
+2. Enter a name for your project (like `my-cool-app`)
+3. Follow the instructions to open your new project in Cursor
+4. Run `/setup` in the new project
+5. Run `/start` to launch it
+
+---
+
+## 📁 What's Included
+
+This scaffold comes with modern tools pre-configured:
+
+- **Next.js 15** - React framework for building web apps
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Easy styling with utility classes
+- **Prisma** - Database toolkit (PostgreSQL)
+- **shadcn/ui** - Beautiful UI components
+
+---
+
+## 🛠 For Developers
+
+<details>
+<summary>Click to expand developer documentation</summary>
+
+### Manual Commands
+
+If you prefer using the terminal directly:
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm run dev
+
+# Build for production
+pnpm run build
+
+# Run tests
+pnpm run test
+
+# Database commands
+pnpm run db:generate    # Generate Prisma client
+pnpm run db:push        # Push schema changes
+pnpm run db:studio      # Open database UI
+```
+
+### Project Structure
 
 ```
 src/
-├── app/                 # Next.js App Router pages
-│   ├── layout.tsx      # Root layout
-│   ├── page.tsx        # Home page
-│   └── globals.css     # Global styles
-├── components/         # Reusable components
-│   ├── ui/            # shadcn/ui components
-│   │   ├── button.tsx
-│   │   ├── form.tsx
-│   │   ├── input.tsx
-│   │   └── label.tsx
-│   └── ExampleForm.tsx # Example form component
-├── lib/               # Utility functions
-│   └── utils.ts       # shadcn/ui utilities
-└── types/             # TypeScript type definitions
+├── app/                 # Pages and layouts
+├── components/          # Reusable UI components
+│   └── ui/             # shadcn/ui components
+├── lib/                # Utility functions
+└── types/              # TypeScript types
+
+prisma/
+└── schema.prisma       # Database schema
+
+.cursor/
+└── commands/           # Cursor slash commands
 ```
 
-## Database
-
-The scaffold includes a basic User model in Prisma. You can extend it by:
-
-1. Editing `prisma/schema.prisma`
-2. Running `pnpm run db:push` to apply changes
-3. Or `pnpm run db:migrate` for versioned migrations
-
-## Styling & UI
-
-Uses Tailwind CSS v4 with shadcn/ui components:
-
-- Geist fonts (sans and mono)
-- Dark mode support
-- Responsive design utilities
-- Radix UI primitives for accessibility
-- Pre-built components: Button, Input, Label, Form
-
-## Forms & Validation
-
-- **React Hook Form** for form state management
-- **Zod** for schema validation
-- **@hookform/resolvers** for integration
-- Type-safe form handling with TypeScript
-- Example form component included
-
-## Type Safety
-
-- Strict TypeScript configuration
-- Path aliases configured (`@/` points to `src/`)
-- ESLint rules for TypeScript best practices
-- Zod schemas for runtime type validation
-
-## Development Workflow
-
-1. Write code with full TypeScript support
-2. ESLint catches issues automatically
-3. Prettier formats code consistently
-4. Prisma provides type-safe database access
-5. Use shadcn/ui components for consistent UI
-6. React Hook Form + Zod for type-safe forms
-
-## Testing
-
-- **Jest** for unit tests (`pnpm run test`, `pnpm run test:watch`, `pnpm run test:coverage`)
-- **Cypress** for end-to-end (E2E) tests (`pnpm run test:e2e`, `pnpm run test:e2e:open`)
-- **React Testing Library** for component tests
-- Tests live alongside the code they test (e.g., `src/components/__tests__/`)
-- Use descriptive test names and utility functions for assertions
-
-## Adding More Components
-
-To add more shadcn/ui components:
+### Adding UI Components
 
 ```bash
-npx shadcn@latest add [component-name]
+npx shadcn@latest add button
+npx shadcn@latest add card
+# See all: https://ui.shadcn.com/docs/components
 ```
 
-Available components: https://ui.shadcn.com/docs/components
+</details>
 
-This scaffold is designed to be minimal but complete, giving you a solid foundation to build upon without unnecessary complexity.
+---
+
+## ❓ Need Help?
+
+- Type your question in the Cursor chat - the AI can help!
+- Check the [Next.js docs](https://nextjs.org/docs)
+- Check the [Tailwind CSS docs](https://tailwindcss.com/docs)
