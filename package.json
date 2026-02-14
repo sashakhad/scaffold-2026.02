@@ -50,7 +50,6 @@
   "devDependencies": {
     "@chromatic-com/storybook": "5.0.1",
     "@eslint/compat": "2.0.2",
-    "@eslint/eslintrc": "3.3.3",
     "@prisma/config": "7.4.0",
     "@storybook/addon-a11y": "10.2.8",
     "@storybook/addon-docs": "10.2.8",
