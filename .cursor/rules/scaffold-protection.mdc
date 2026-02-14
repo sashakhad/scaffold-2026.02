@@ -49,7 +49,7 @@ I noticed you're working in `{project-name}`, which appears to be a scaffold or 
 ## Examples of Scaffold Detection
 
 **These paths would trigger the warning:**
-- `/Users/user/Documents/Code/scaffold-2025.10`
+- `/Users/user/Documents/Code/scaffold-2026.02`
 - `/Users/user/projects/nextjs-scaffold`
 - `/home/dev/my-template`
 - Any path where package.json name is "scaffold-*" or "*-template"
