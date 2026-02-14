@@ -1,13 +1,15 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import { fixupConfigRules } from '@eslint/compat';
 import storybook from 'eslint-plugin-storybook';
 import nextConfig from 'eslint-config-next';
 import coreWebVitals from 'eslint-config-next/core-web-vitals';
 import typescript from 'eslint-config-next/typescript';
 
+// fixupConfigRules shims deprecated context methods (getFilename, getSourceCode, etc.)
+// for plugins that haven't migrated to ESLint 10's new API yet.
+// Remove once eslint-plugin-react, typescript-eslint, etc. release ESLint 10 support.
 const eslintConfig = [
-  ...nextConfig,
-  ...coreWebVitals,
-  ...typescript,
+  ...fixupConfigRules([...nextConfig, ...coreWebVitals, ...typescript]),
   {
     ignores: ['node_modules/**', '.next/**', 'dist/**', 'out/**', 'coverage/**', 'next-env.d.ts'],
   },
