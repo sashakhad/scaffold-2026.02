@@ -2,7 +2,7 @@
  * Changelog data and types.
  *
  * To add a new entry, prepend it to the `CHANGELOG_ENTRIES` array.
- * Use the Cursor skill `/update-changelog` to automate this from git history.
+ * Use the `/update-changelog` Cursor command to automate this from git history.
  */
 
 export type ChangeCategory = 'added' | 'improved' | 'fixed' | 'security' | 'infrastructure';
