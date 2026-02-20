@@ -1,10 +1,15 @@
 # Create New Project
 
-Create a fresh copy of this scaffold as a new project.
+Create a fresh copy of this scaffold as a new project, with its own private GitHub repo.
 
 ## Instructions for AI
 
 **IMPORTANT: Always ask for the project name first before doing anything else!**
+
+## Prerequisites
+
+- `gh` CLI must be installed and authenticated (`gh auth status`)
+- If not authenticated, instruct the user to run `gh auth login` first
 
 ## Steps
 
@@ -48,22 +53,30 @@ Create a fresh copy of this scaffold as a new project.
    rm -rf node_modules .git pnpm-lock.yaml package-lock.json
    ```
 
-6. **Initialize fresh git repo**:
+6. **Update package.json** - Change the `"name"` field to the new project name
+
+7. **Initialize fresh git repo**:
    ```bash
    git init
    git add .
    git commit -m "Initial commit from scaffold"
    ```
 
-7. **Update package.json** - Change the `"name"` field to the new project name
+8. **Create a private GitHub repo and push**:
+   ```bash
+   gh repo create <project-name> --private --source . --push
+   ```
+   - This creates a private repo under the authenticated user's account, sets it as `origin`, and pushes
+   - If the repo name is already taken, append a suffix or ask the user for an alternative
 
-8. **Display success message**:
+9. **Display success message**:
 
    ---
    
    ## ✅ Your new project "{project-name}" is ready!
    
    **Project location:** `<full-path-to-new-project>`
+   **GitHub repo:** `https://github.com/<username>/<project-name>`
    
    ### 👉 Next Steps
    
@@ -84,6 +97,7 @@ Create a fresh copy of this scaffold as a new project.
 - **DO NOT proceed without getting a project name from the user first**
 - Wait for user input at step 1 before running any commands
 - Make sure to use the exact name the user provides (after validation/conversion)
+- The GitHub repo is always created as **private** by default
 
 ## Tone
 
