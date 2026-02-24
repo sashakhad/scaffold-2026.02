@@ -1,0 +1,52 @@
+---
+description: Enforce date-fns for all date/time operations
+alwaysApply: true
+---
+
+# Use date-fns for All Date Operations
+
+Use `date-fns` for formatting, parsing, comparing, and manipulating dates. Do not use native `Date` methods for these operations.
+
+## Allowed
+
+- `new Date()` to capture the current moment (and nothing else)
+- `Date.now()` for timestamps
+- Passing `Date` objects into `date-fns` functions
+
+## Forbidden
+
+- `Date.parse()`, `new Date(stringValue)` for parsing — use `parse` or `parseISO` from date-fns
+- `.toLocaleDateString()`, `.toISOString()`, `.toDateString()` for display — use `format` from date-fns
+- `.getFullYear()`, `.getMonth()`, `.getDate()`, `.getDay()` — use `getYear`, `getMonth`, `getDate`, `getDay` from date-fns
+- Manual date arithmetic (`date.getTime() + 86400000`) — use `addDays`, `addHours`, `subWeeks`, etc.
+- `Intl.DateTimeFormat` for formatting — use `format` or `formatDistance` from date-fns
+
+## Examples
+
+```typescript
+import { format, parseISO, addDays, differenceInDays, isAfter } from 'date-fns';
+
+// ❌ BAD
+const formatted = new Date().toLocaleDateString('en-US');
+const parsed = new Date('2025-03-15');
+const tomorrow = new Date(Date.now() + 86400000);
+const year = someDate.getFullYear();
+
+// ✅ GOOD
+const formatted = format(new Date(), 'MM/dd/yyyy');
+const parsed = parseISO('2025-03-15');
+const tomorrow = addDays(new Date(), 1);
+const year = getYear(someDate);
+```
+
+## Imports
+
+Always import individual functions — never import the entire library:
+
+```typescript
+// ❌ BAD
+import * as dateFns from 'date-fns';
+
+// ✅ GOOD
+import { format, addDays } from 'date-fns';
+```
