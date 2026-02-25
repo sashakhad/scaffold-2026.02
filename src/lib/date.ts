@@ -9,6 +9,8 @@ import {
   differenceInDays,
   addDays,
   subDays,
+  getYear,
+  getMonth,
 } from 'date-fns';
 
 /**
@@ -35,6 +37,25 @@ export function formatDateTime(date: Date | string): string {
 export function timeAgo(date: Date | string): string {
   const parsed = typeof date === 'string' ? parseISO(date) : date;
   return formatDistanceToNow(parsed, { addSuffix: true });
+}
+
+/**
+ * Smart date range formatting that avoids redundancy.
+ * Same month: "Jan 1 – 31, 2026". Same year: "Jan 1 – Feb 14, 2026".
+ */
+export function formatDateRange(startIso: string, endIso: string): string {
+  const start = parseISO(startIso);
+  const end = parseISO(endIso);
+  const sameYear = getYear(start) === getYear(end);
+  const sameMonth = sameYear && getMonth(start) === getMonth(end);
+
+  if (sameMonth) {
+    return `${format(start, 'MMM d')} – ${format(end, 'd, yyyy')}`;
+  }
+  if (sameYear) {
+    return `${format(start, 'MMM d')} – ${format(end, 'MMM d, yyyy')}`;
+  }
+  return `${format(start, 'MMM d, yyyy')} – ${format(end, 'MMM d, yyyy')}`;
 }
 
 // Re-export commonly used date-fns functions for convenience

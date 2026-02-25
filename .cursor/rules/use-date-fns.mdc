@@ -1,19 +1,21 @@
 ---
-description: Enforce date-fns for all date/time operations
+description: Enforce date-fns for all date/time operations with standard format patterns
 alwaysApply: true
 ---
 
-# Use date-fns for All Date Operations
+# Date Handling & Formatting
 
-Use `date-fns` for formatting, parsing, comparing, and manipulating dates. Do not use native `Date` methods for these operations.
+Use `date-fns` for all date operations. Use the utility functions in `src/lib/date.ts` for formatting — never format dates inline in components.
 
-## Allowed
+## Library Rule: Always Use date-fns
+
+### Allowed
 
 - `new Date()` to capture the current moment (and nothing else)
 - `Date.now()` for timestamps
 - Passing `Date` objects into `date-fns` functions
 
-## Forbidden
+### Forbidden
 
 - `Date.parse()`, `new Date(stringValue)` for parsing — use `parse` or `parseISO` from date-fns
 - `.toLocaleDateString()`, `.toISOString()`, `.toDateString()` for display — use `format` from date-fns
@@ -21,25 +23,7 @@ Use `date-fns` for formatting, parsing, comparing, and manipulating dates. Do no
 - Manual date arithmetic (`date.getTime() + 86400000`) — use `addDays`, `addHours`, `subWeeks`, etc.
 - `Intl.DateTimeFormat` for formatting — use `format` or `formatDistance` from date-fns
 
-## Examples
-
-```typescript
-import { format, parseISO, addDays, differenceInDays, isAfter } from 'date-fns';
-
-// ❌ BAD
-const formatted = new Date().toLocaleDateString('en-US');
-const parsed = new Date('2025-03-15');
-const tomorrow = new Date(Date.now() + 86400000);
-const year = someDate.getFullYear();
-
-// ✅ GOOD
-const formatted = format(new Date(), 'MM/dd/yyyy');
-const parsed = parseISO('2025-03-15');
-const tomorrow = addDays(new Date(), 1);
-const year = getYear(someDate);
-```
-
-## Imports
+### Imports
 
 Always import individual functions — never import the entire library:
 
@@ -49,4 +33,49 @@ import * as dateFns from 'date-fns';
 
 // ✅ GOOD
 import { format, addDays } from 'date-fns';
+```
+
+## Format Patterns
+
+Use the utility functions in `src/lib/date.ts` instead of calling `format()` directly in components. These enforce consistent patterns across the app:
+
+| Function          | Pattern                        | Example Output                   |
+|-------------------|--------------------------------|----------------------------------|
+| `formatDate`      | `MMM d, yyyy`                  | `Jan 5, 2026`                    |
+| `formatDateTime`  | `MMM d, yyyy 'at' h:mm a`     | `Jan 5, 2026 at 3:45 PM`        |
+| `formatDateRange` | smart (avoids redundancy)      | `Jan 1 – 31, 2026`              |
+| `timeAgo`         | relative                       | `3 hours ago`                    |
+
+### Date Range Formatting
+
+`formatDateRange` collapses redundant parts automatically:
+
+- Same month: `Jan 1 – 31, 2026`
+- Same year: `Jan 1 – Feb 14, 2026`
+- Different years: `Dec 15, 2025 – Jan 10, 2026`
+
+### ISO Transport Format
+
+When sending dates over the wire (API requests, query params), use `yyyy-MM-dd`:
+
+```typescript
+import { format } from 'date-fns';
+
+const isoDate = format(someDate, 'yyyy-MM-dd');
+```
+
+## Examples
+
+```typescript
+import { formatDate, formatDateTime, formatDateRange, timeAgo } from '@/lib/date';
+
+// ❌ BAD — inline formatting in components
+<span>{new Date(dateStr).toLocaleDateString('en-US')}</span>
+<span>{format(parseISO(dateStr), 'MMM d, yyyy')}</span>
+
+// ✅ GOOD — use the utility functions
+<span>{formatDate(dateStr)}</span>
+<span>{formatDateTime(dateStr)}</span>
+<span>{formatDateRange(startIso, endIso)}</span>
+<span>{timeAgo(dateStr)}</span>
 ```
