@@ -1,5 +1,6 @@
 import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
+// @ts-expect-error — PrismaClient is generated; run `pnpm db:generate` after configuring DATABASE_URL
 import { PrismaClient } from '@prisma/client';
 
 const globalForPrisma = globalThis as unknown as {
