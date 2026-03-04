@@ -35,6 +35,12 @@ Display this information in a friendly, clear way:
 - Warns you if you have uncommitted changes
 - Only works in the scaffold template (not derived projects)
 
+### 📋 `/update-changelog`
+**Updates the changelog** with recent changes from `main`.
+- Reads squash-merged PR history since the last entry
+- Writes user-facing descriptions (not file-level details)
+- Visit `/changelog` to see the result
+
 ### ❓ `/help`
 **You're here!** Shows this list of commands.
 
