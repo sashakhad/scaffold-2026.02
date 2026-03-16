@@ -140,6 +140,17 @@ EOF
   fi
 }
 
+function print_summary_with_blocking_reasons() {
+  local ready_for_run="$1"
+
+  if ((${#blocking_reasons[@]} > 0)); then
+    print_summary "$ready_for_run" "${blocking_reasons[@]}"
+    return
+  fi
+
+  print_summary "$ready_for_run"
+}
+
 function assert_no_leftover_references() {
   local source_name="$1"
   local matches
@@ -285,12 +296,12 @@ if git show-ref --verify --quiet "refs/heads/$branch_name"; then
 fi
 
 if $dry_run; then
-  print_summary "$ready_for_run" "${blocking_reasons[@]}"
+  print_summary_with_blocking_reasons "$ready_for_run"
   exit 0
 fi
 
 if [[ "$ready_for_run" != "yes" ]]; then
-  print_summary "$ready_for_run" "${blocking_reasons[@]}"
+  print_summary_with_blocking_reasons "$ready_for_run"
   fail "Dry-run reported blocking issues. Fix them before running the real bump."
 fi
 
