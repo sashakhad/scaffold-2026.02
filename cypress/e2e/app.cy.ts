@@ -2,23 +2,19 @@ describe('App', () => {
   it('should load the application', () => {
     cy.visit('/');
 
-    // Basic checks that the app is working
     cy.get('body').should('be.visible');
     cy.get('html').should('have.attr', 'lang');
-
-    // Check that the page has some content by looking for specific elements
-    cy.get('h1').should('contain', 'Modern Full-Stack Scaffold');
-    cy.get('div').should('exist');
+    cy.get('main').should('be.visible');
+    cy.get('h1').should('be.visible');
+    cy.get('form').should('be.visible');
+    cy.get('button[type="submit"]').should('contain', 'Submit');
   });
 
-  it('should have proper page structure', () => {
+  it('should render the example form fields', () => {
     cy.visit('/');
 
-    // Check for basic HTML structure without being content-specific
-    cy.get('head').should('exist');
-    cy.get('body').should('exist');
-
-    // Ensure the page is interactive (not just a static file)
-    cy.window().should('have.property', 'document');
+    cy.get('input[name="email"]').should('exist');
+    cy.get('input[name="password"]').should('exist');
+    cy.get('input[name="confirmPassword"]').should('exist');
   });
 });
