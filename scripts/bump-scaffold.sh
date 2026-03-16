@@ -18,8 +18,8 @@ Options:
 
 Examples:
   pnpm run bump:scaffold -- --dry-run
-  pnpm run bump:scaffold -- --new-name scaffold-2026.04
-  pnpm run bump:scaffold -- --new-name scaffold-2026.04 --merge-after-ci
+  pnpm run bump:scaffold -- --new-name <next-scaffold-name>
+  pnpm run bump:scaffold -- --new-name <next-scaffold-name> --merge-after-ci
 EOF
 }
 
