@@ -2,48 +2,43 @@ import { ExampleForm } from '@/components/ExampleForm';
 
 export default function Home() {
   return (
-    <div className='min-h-screen p-8 font-[family-name:var(--font-geist-sans)]'>
+    <main className='min-h-screen p-8 font-[family-name:var(--font-geist-sans)]'>
       <div className='mx-auto max-w-4xl space-y-12'>
-        {/* Header Section */}
         <header className='space-y-4 text-center'>
           <h1 className='text-4xl font-bold'>Modern Full-Stack Scaffold</h1>
           <p className='text-muted-foreground text-xl'>
-            Next.js 16.1.1 + React 19.2.3 + TypeScript 5.9.3 + Prisma 7.2.0 + Tailwind CSS 4.1.18 + shadcn/ui
+            Next.js App Router, React, TypeScript, Prisma, Tailwind CSS, and shadcn/ui.
           </p>
         </header>
 
-        {/* Features Grid */}
         <section className='grid gap-8 md:grid-cols-2'>
           <div className='space-y-4'>
             <h2 className='text-2xl font-semibold'>Built with Modern Tech</h2>
-            <ul className='text-muted-foreground space-y-2'>
-              <li>• Next.js 16.1.1 with App Router and Turbopack</li>
-              <li>• React 19.2.3 with latest features</li>
-              <li>• TypeScript 5.9.3 with strict configuration</li>
-              <li>• Prisma 7.2.0 with PostgreSQL</li>
-              <li>• Tailwind CSS 4.1.18 for styling</li>
-              <li>• shadcn/ui with Radix components</li>
-              <li>• React Hook Form with Zod validation</li>
+            <ul className='text-muted-foreground list-disc space-y-2 pl-5'>
+              <li>Next.js with App Router and Turbopack</li>
+              <li>React with strict TypeScript support</li>
+              <li>Prisma with PostgreSQL adapter</li>
+              <li>Tailwind CSS with Radix-powered UI primitives</li>
+              <li>React Hook Form with Zod validation</li>
             </ul>
           </div>
 
           <div className='space-y-4'>
-            <h2 className='text-2xl font-semibold'>Development Tools</h2>
-            <ul className='text-muted-foreground space-y-2'>
-              <li>• ESLint with Next.js and TypeScript rules</li>
-              <li>• Prettier for code formatting</li>
-              <li>• Type-safe database access</li>
-              <li>• Hot reload with Turbopack</li>
-              <li>• Prisma Studio for database management</li>
+            <h2 className='text-2xl font-semibold'>Development Tooling</h2>
+            <ul className='text-muted-foreground list-disc space-y-2 pl-5'>
+              <li>ESLint and Prettier for code quality</li>
+              <li>Jest and Testing Library for unit tests</li>
+              <li>Cypress for end-to-end smoke tests</li>
+              <li>Storybook with Vitest integration</li>
+              <li>Prisma Studio for database management</li>
             </ul>
           </div>
         </section>
 
-        {/* Example Form Section */}
         <section className='flex justify-center'>
           <ExampleForm />
         </section>
       </div>
-    </div>
+    </main>
   );
 }

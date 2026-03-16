@@ -1,6 +1,6 @@
 # Project Scaffold
 
-A clean, modern scaffold for full-stack web applications built with Next.js 16.1.1, React 19.2.3, TypeScript 5.9.3, Prisma 7.2.0, Tailwind CSS 4.1.18, and shadcn/ui.
+A clean, modern scaffold for full-stack web applications built with Next.js App Router, React, TypeScript, Prisma, Tailwind CSS, and shadcn/ui.
 
 ---
 
@@ -47,15 +47,16 @@ Want to create a new project using this template?
 
 This scaffold comes with modern tools pre-configured:
 
-- **Next.js 16.1.1** with App Router and Turbopack
-- **React 19.2.3** with latest features
-- **TypeScript 5.9.3** with strict configuration
-- **Prisma 7.2.0** with PostgreSQL for database management
-- **Tailwind CSS 4.1.18** for styling
+- **Next.js** with App Router and Turbopack
+- **React** with strict TypeScript configuration
+- **Prisma** with a PostgreSQL adapter
+- **Tailwind CSS** for styling
 - **shadcn/ui** with Radix UI components
 - **React Hook Form** with Zod validation
-- **ESLint** with Next.js and TypeScript rules
-- **Prettier** for code formatting
+- **Jest** and Testing Library for component tests
+- **Cypress** for end-to-end smoke tests
+- **Storybook** with Vitest integration
+- **ESLint** and **Prettier** for code quality
 
 ---
 
@@ -80,6 +81,15 @@ pnpm run build
 
 # Run tests
 pnpm run test
+
+# Run end-to-end smoke tests
+pnpm run test:e2e
+
+# Start Storybook
+pnpm run storybook
+
+# Type-check the project
+pnpm run type-check
 
 # Database commands
 pnpm run db:generate    # Generate Prisma client
