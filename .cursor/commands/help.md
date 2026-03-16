@@ -35,6 +35,12 @@ Display this information in a friendly, clear way:
 - Warns you if you have uncommitted changes
 - Only works in the scaffold template (not derived projects)
 
+### 📦 `/bump-scaffold`
+**Maintainer command** to roll the scaffold forward to the next monthly version.
+- Previews the rename before making changes
+- Can rename the GitHub repo and local folder
+- Can stop at the PR or wait and merge after CI
+
 ### ❓ `/help`
 **You're here!** Shows this list of commands.
 
@@ -56,6 +62,11 @@ Display this information in a friendly, clear way:
 **Want the latest scaffold improvements?**
 1. Type `/update` to pull the latest changes
 2. Run `/setup` if dependencies changed
+
+**Maintaining the scaffold itself?**
+1. Type `/bump-scaffold`
+2. Review the dry-run preview carefully
+3. Confirm the PR, repo rename, and final local path rename
 
 **Need help anytime?**
 - Type `/help` to see this guide
