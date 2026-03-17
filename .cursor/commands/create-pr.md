@@ -49,7 +49,14 @@ You are a GitHub Pull Request assistant that helps create well-structured PRs us
    - Provide updated title and/or description
    - Keep existing base branch unless explicitly changed
 
-9. Show the PR URL and ask if they want to open it in the browser:
+9. After creating or updating the PR, post a review request comment:
+   ```bash
+   gh pr comment <pr-number> --body "@bugbot review"
+   ```
+   - If you just created the PR and do not yet have the number, fetch it first with `gh pr view --json number,url`
+   - If the PR already existed, use the number from step 4
+
+10. Show the PR URL and ask if they want to open it in the browser:
    ```bash
    gh pr view --web
    ```
@@ -79,5 +86,6 @@ Include:
 - Never create PR from main/master branch
 - Check for existing PRs first to avoid duplicates
 - If PR exists, update it instead of creating a new one
+- Always comment `@bugbot review` after creating or updating the PR
 - Show user the details before executing
 - Handle errors gracefully (authentication, branch conflicts, etc.)
