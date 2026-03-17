@@ -50,8 +50,11 @@ Create a fresh copy of this scaffold as a new project, with its own private GitH
 5. **Clean up the new project**:
    ```bash
    cd "<destination>/<project-name>"
-   rm -rf node_modules .git pnpm-lock.yaml package-lock.json
+   rm -f .cursor/commands/new-project.md
+   rm -f .cursor/commands/update.md
    rm -f .cursor/commands/bump-scaffold.md
+   rm -f .cursor/rules/scaffold-protection.mdc
+   rm -rf node_modules .git pnpm-lock.yaml package-lock.json
    rm -f scripts/bump-scaffold.sh
    rmdir scripts 2>/dev/null || true
    ```
@@ -59,8 +62,9 @@ Create a fresh copy of this scaffold as a new project, with its own private GitH
 6. **Update copied scaffold metadata**:
    - Change the `"name"` field in `package.json` to the new project name
    - Remove the `"bump:scaffold"` script from `package.json`
-   - Update `.cursor/commands/help.md` to remove any `/bump-scaffold` section or scaffold-maintainer workflow text
-   - Make sure the new project does not advertise scaffold-only maintenance commands
+   - Update `.cursor/commands/help.md` to remove `/new-project`, `/update`, and `/bump-scaffold` sections plus any scaffold-maintainer workflow text
+   - If the copied project keeps the starter `README.md`, remove scaffold-only command references there as well
+   - Make sure the new project does not advertise scaffold-only maintenance commands or include scaffold-protection prompts
 
 7. **Initialize fresh git repo**:
    ```bash
